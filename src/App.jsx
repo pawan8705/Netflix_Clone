@@ -6,7 +6,7 @@ import Player from './pages/Player/Player'
 import { onAuthStateChanged } from 'firebase/auth/cordova'
 import { useEffect } from 'react'
 import { auth } from './Firebase'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css' 
 
 const App = () => {
@@ -15,10 +15,8 @@ const App = () => {
   useEffect(() =>{
     onAuthStateChanged(auth, async (user) => {
       if(user){
-        console.log("Logged In");
         navigate('/')
       } else{
-        console.log("Logged Out");
         navigate('/login')
       }
     })
